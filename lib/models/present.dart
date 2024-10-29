@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Item {
+// Criação do Construtor de presentes
+class Present {
   String id;
   String description;
   DateTime dateToGive;
   String recipient;
   bool isGiven;
 
-  Item({
+  Present({
     required this.id,
     required this.description,
     required this.dateToGive,
@@ -15,8 +16,8 @@ class Item {
     required this.isGiven,
   });
 
-  factory Item.fromMap(Map<String, dynamic> data, String documentId) {
-    return Item(
+  factory Present.fromMap(Map<String, dynamic> data, String documentId) {
+    return Present(
       id: documentId,
       description: data['description'] ?? '',
       dateToGive: (data['dateToGive'] as Timestamp).toDate(),
